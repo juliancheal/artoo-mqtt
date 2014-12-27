@@ -43,9 +43,8 @@ module Artoo
         connection.subscribe(@topics)
       end
       
-      def publish_message(data)
-        puts "Every Second"
-        connection.publish(topic,data)      
+      def publish_message(topic, data)
+        connection.publish(topic,data) 
       end
 
     end
