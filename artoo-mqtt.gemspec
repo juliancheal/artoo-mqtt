@@ -6,10 +6,10 @@ Gem::Specification.new do |s|
   s.name        = "artoo-mqtt"
   s.version     = Artoo::Mqtt::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Your name here"]
-  s.email       = ["your email here"]
-  s.homepage    = "Your homepage here"
-  s.license     = "Your License Here"
+  s.authors     = ["Julian Cheal"]
+  s.email       = ["julian.cheal@gmail.com"]
+  s.homepage    = "http:://juliancheal.co.uk"
+  s.license     = "MIT"
   s.summary     = %q{Artoo adaptor and driver for Mqtt}
   s.description = %q{Artoo adaptor and driver for Mqtt}
 
@@ -21,9 +21,5 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency 'artoo', '>= 1.8.0'
-  # TODO: add your development dependencies here
-  # EXAMPLE:
-  # s.add_development_dependency 'minitest', '>= 5.0'
-  # s.add_development_dependency 'minitest-happy'
-  # s.add_development_dependency 'mocha', '>= 0.14.0'
+  s.add_development_dependency 'mqtt', '>= 0.3.1'
 end
