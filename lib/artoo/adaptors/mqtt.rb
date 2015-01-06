@@ -16,7 +16,7 @@ module Artoo
         @retries_left = RETRY_COUNT
         require 'mqtt' unless defined?(::Mqtt)
         begin
-          @mqtt = ::MQTT::Client.connect("mqtt://#{port.host}:#{port.port}")
+          @mqtt = Iris::MQTT::Client.connect("mqtt://#{port.host}:#{port.port}")
           super
           return true
         rescue Errno::EBUSY, Errno::ECONNREFUSED => e

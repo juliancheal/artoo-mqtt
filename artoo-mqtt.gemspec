@@ -21,5 +21,5 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency 'artoo', '>= 1.8.0'
-  s.add_development_dependency 'mqtt', '>= 0.3.1'
+  s.add_development_dependency 'iris-mqtt', '>= 0.0.1'
 end
