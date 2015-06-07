@@ -14,7 +14,7 @@ module Artoo
       # @return [Boolean]
       def connect
         @retries_left = RETRY_COUNT
-        require 'mqtt' unless defined?(::Mqtt)
+        require 'iris_mqtt' unless defined?(::Mqtt)
         begin
           @mqtt = Iris::MQTT::Client.connect("mqtt://#{port.host}:#{port.port}")
           super

@@ -27,8 +27,9 @@ GEM
     http (0.6.2)
       http_parser.rb (~> 0.6.0)
     http_parser.rb (0.6.0)
+    iris_mqtt (0.0.1)
+      celluloid-io (~> 0.16.1)
     method_source (0.8.2)
-    mqtt (0.3.1)
     multi_json (1.10.1)
     nio4r (1.0.1)
     pry (0.9.12.6)
@@ -54,4 +55,4 @@ PLATFORMS
 
 DEPENDENCIES
   artoo-mqtt!
-  mqtt (>= 0.3.1)
+  iris_mqtt (>= 0.0.1)
