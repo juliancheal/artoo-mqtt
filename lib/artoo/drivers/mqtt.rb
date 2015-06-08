@@ -6,21 +6,22 @@ module Artoo
     class Mqtt < Driver
       attr_reader :topic
       attr_accessor :topics
-      
+
       COMMANDS = [:publish_message, :add_topics].freeze
 
       # Start driver and any required connections
       def start_driver
         @topic = @additional_params[:topic]
         @topics = []
-        
         connection.subscribe(@topic)
-        
+        connection.start
         begin
-          every(interval) do
-            handle_message_events
+          connection.subscription(@topic) do |message|
+            publish(event_topic_name(@topic), message)
           end
-        
+          # every(interval) do
+          #   handle_message_events
+          # end
           super
         rescue Exception => e
           Logger.error "Error starting Mqtt driver!"
@@ -30,21 +31,22 @@ module Artoo
       end
 
       def handle_message_events
-        data = connection.get
-        publish_topics(data)
+        connection.subscription(@topic) do |message|
+          publish(event_topic_name(@topic), message)
+        end
       end
-      
+
       def publish_topics(data)
-        publish(event_topic_name(data[0]), data)
+        publish(event_topic_name(data), data)
       end
-      
+
       def add_topics(topics)
         @topics = topics
-        connection.subscribe(@topics)
+        connection.subscribes(@topics)
       end
-      
+
       def publish_message(topic, data)
-        connection.publish(topic,data) 
+        connection.publish(topic,data)
       end
 
     end
